@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Power Calculation</title>
+    <script src="script.js"></script>
+</head>
+<body>
+    <div>
+        <input id="base" type="number">
+        <input id="exponent" type="number">
+        <button onclick="performCalculation()">Calculate Power</button>
+    </div>
+    <div>Result:<br><span id="result"></span></div>
+    <script>
+        function performCalculation() {
+            // Get the user input values
+            const base = parseFloat(document.getElementById('base').value);
+            const exponent = parseFloat(document.getElementById('exponent').value);
+            const result = wasmExports._Z14calculatePowerdd(base, exponent);
+            document.getElementById('result').textContent = result;
+        }
+    </script>
+</body>
+</html>
